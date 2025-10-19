@@ -82,7 +82,7 @@ public class Setup {
     // Setup methods
     public static void setup(VillagerUtil p) {
         // Setup category and researches
-        ItemGroup ig = new ItemGroup(Utils.key("villager_util"), new CustomItemStack(Material.EMERALD_BLOCK, "&aVillager Utils"));
+        ItemGroup ig = new ItemGroup(Utils.key("villager_util"), CustomItemStack.create(Material.EMERALD_BLOCK, "&aVillager Utils"));
         ig.register(p);
 
         // Setup /resetvillager command
@@ -90,16 +90,16 @@ public class Setup {
 
         // Setup items
         new SlimefunItem(ig, ESSENCE, RecipeType.ANCIENT_ALTAR, new ItemStack[] {
-            SlimefunItems.MAGIC_LUMP_2, new ItemStack(Material.GLASS_PANE), SlimefunItems.ENDER_LUMP_2,
-            new ItemStack(Material.EMERALD), SlimefunItems.VILLAGER_RUNE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE,
-            SlimefunItems.ENDER_LUMP_2, new ItemStack(Material.GLASS_PANE), SlimefunItems.MAGIC_LUMP_2
-        }, new SlimefunItemStack(ESSENCE, 16)).register(p);
+            SlimefunItems.MAGIC_LUMP_2.asOne(), new ItemStack(Material.GLASS_PANE), SlimefunItems.ENDER_LUMP_2.asOne(),
+            new ItemStack(Material.EMERALD), SlimefunItems.VILLAGER_RUNE.asOne(), SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE.asOne(),
+            SlimefunItems.ENDER_LUMP_2.asOne(), new ItemStack(Material.GLASS_PANE), SlimefunItems.MAGIC_LUMP_2.asOne()
+        }, Utils.withAmount(ESSENCE.asOne(), 16)).register(p);
 
         new SlimefunItem(ig, TOKEN, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
-            ESSENCE, SlimefunItems.STRANGE_NETHER_GOO, new ItemStack(Material.EMERALD),
+            ESSENCE.asOne(), SlimefunItems.STRANGE_NETHER_GOO.asOne(), new ItemStack(Material.EMERALD),
             null, null, null,
             null, null, null
-        }, new SlimefunItemStack(TOKEN, 2)).register(p);
+        }, Utils.withAmount(TOKEN.asOne(), 2)).register(p);
 
         // Setup Villager Charm
         new TransportCharm(ig).register(p);

@@ -48,9 +48,9 @@ public class TransportCharm extends SlimefunItem {
 
     // Creates Villager Charm
     public TransportCharm(ItemGroup ig) {
-        super(ig, Setup.TRANSPORT_CHARM, "VU_TRANSPORT_CHARM", transportWandRecipeType, new ItemStack[] {
+        super(ig, Setup.TRANSPORT_CHARM.asOne(), "VU_TRANSPORT_CHARM", transportWandRecipeType, new ItemStack[] {
             null, null, null,
-            null, new CustomItemStack(PlayerHead.getItemStack(PlayerSkin.fromBase64(Setup.VILLAGER)), "&aVillager"), null,
+            null, CustomItemStack.create(PlayerHead.getItemStack(PlayerSkin.fromBase64(Setup.VILLAGER)), "&aVillager"), null,
             null, null, null
         });
     }
@@ -127,7 +127,7 @@ public class TransportCharm extends SlimefunItem {
                         w.spawnParticle(Particle.PORTAL, l, 150);
 
                         // Consume charm
-                        inv.removeItem(new CustomItemStack(item, 1));
+                        inv.removeItem(CustomItemStack.create(item, 1));
                     }
                 }
             }
@@ -144,13 +144,13 @@ public class TransportCharm extends SlimefunItem {
         // Check if tokens are enabled in config
         if (useTokens) {
             // Refund token if there is available space
-            if (inv.addItem(Setup.TOKEN.clone()).isEmpty()) {
+            if (inv.addItem(Setup.TOKEN.asOne()).isEmpty()) {
                 // Consume charm
-                inv.removeItem(new CustomItemStack(item, 1));
+                inv.removeItem(CustomItemStack.create(item, 1));
             }
         } else {
             // Consume charm
-            inv.removeItem(new CustomItemStack(item, 1));
+            inv.removeItem(CustomItemStack.create(item, 1));
         }
     }
     

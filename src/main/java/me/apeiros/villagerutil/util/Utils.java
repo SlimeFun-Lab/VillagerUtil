@@ -11,9 +11,7 @@ import org.bukkit.entity.Villager.Profession;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.PotionMeta;
-import org.bukkit.potion.PotionData;
-
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import org.bukkit.potion.PotionType;
 
 import me.apeiros.villagerutil.Setup;
 import me.apeiros.villagerutil.VillagerUtil;
@@ -44,13 +42,13 @@ public class Utils {
     }
 
     // Create a potion
-    public static ItemStack makePotion(PotionData data) {
+    public static ItemStack makePotion(PotionType type) {
         ItemStack potion = new ItemStack(Material.POTION);
         PotionMeta meta = (PotionMeta) potion.getItemMeta();
 
         // Null check
         if (meta != null) {
-            meta.setBasePotionData(data);
+            meta.setBasePotionType(type);
             potion.setItemMeta(meta);
         }
 
@@ -59,14 +57,20 @@ public class Utils {
 
     // Check for token (Automatically true when: Creative mode, Tokens disabled)
     public static boolean hasToken(Player p, Inventory inv) {
-        return p.getGameMode() == GameMode.CREATIVE || !VillagerUtil.useTokens() || inv.containsAtLeast(Setup.TOKEN, 1);
+        return p.getGameMode() == GameMode.CREATIVE || !VillagerUtil.useTokens() || inv.containsAtLeast(Setup.TOKEN.asOne(), 1);
     }
 
     // Consume token (Token not consumed when: Creative mode, Tokens disabled)
     public static void removeToken(Player p, Inventory inv) {
         if (p.getGameMode() != GameMode.CREATIVE && VillagerUtil.useTokens()) {
-            inv.removeItem(new SlimefunItemStack(Setup.TOKEN, 1));
+            inv.removeItem(withAmount(Setup.TOKEN.asOne(), 1));
         }
     }
 
+    public static ItemStack withAmount(ItemStack base, int amount) {
+        if (base == null) return null;
+        ItemStack copy = base.clone();
+        copy.setAmount(amount);
+        return copy;
+    }
 }

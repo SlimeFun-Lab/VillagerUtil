@@ -28,10 +28,10 @@ public class NitwitWand extends SlimefunItem {
 
     // Creates Nitwit Wand
     public NitwitWand(ItemGroup ig) {
-        super(ig, Setup.NITWIT_WAND, "VU_NITWIT_WAND", RecipeType.ANCIENT_ALTAR, new ItemStack[] {
-            SlimefunItems.VILLAGER_RUNE, SlimefunItems.ADVANCED_CIRCUIT_BOARD, Setup.TOKEN,
-            SlimefunItems.ADVANCED_CIRCUIT_BOARD, new ItemStack(Material.END_ROD), SlimefunItems.SYNTHETIC_DIAMOND,
-            Setup.TOKEN, SlimefunItems.SYNTHETIC_EMERALD, SlimefunItems.STAFF_ELEMENTAL
+        super(ig, Setup.NITWIT_WAND.asOne(), "VU_NITWIT_WAND", RecipeType.ANCIENT_ALTAR, new ItemStack[] {
+            SlimefunItems.VILLAGER_RUNE.asOne(), SlimefunItems.ADVANCED_CIRCUIT_BOARD.asOne(), Setup.TOKEN.asOne(),
+            SlimefunItems.ADVANCED_CIRCUIT_BOARD.asOne(), new ItemStack(Material.END_ROD), SlimefunItems.SYNTHETIC_DIAMOND.asOne(),
+            Setup.TOKEN.asOne(), SlimefunItems.SYNTHETIC_EMERALD.asOne(), SlimefunItems.STAFF_ELEMENTAL.asOne()
         });
     }
 
@@ -78,7 +78,7 @@ public class NitwitWand extends SlimefunItem {
                 Location l = v.getLocation();
                 w.playSound(l, Sound.ENTITY_ILLUSIONER_PREPARE_BLINDNESS, 1F, 1.5F);
                 w.playSound(l, Sound.BLOCK_BEACON_POWER_SELECT, 1F, 1F);
-                w.spawnParticle(Particle.VILLAGER_HAPPY, l, 50);
+                w.spawnParticle(Particle.HAPPY_VILLAGER, l, 50);
 
                 // Consume villager token
                 Utils.removeToken(p, inv);

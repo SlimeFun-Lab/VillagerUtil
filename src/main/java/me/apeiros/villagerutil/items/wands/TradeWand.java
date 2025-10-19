@@ -39,10 +39,10 @@ public class TradeWand extends SlimefunItem implements Listener {
 
     // Creates Villager Trade Wand
     public TradeWand(ItemGroup ig) {
-        super(ig, Setup.TRADE_WAND, "VU_TRADE_WAND", RecipeType.ANCIENT_ALTAR, new ItemStack[] {
-            SlimefunItems.VILLAGER_RUNE, SlimefunItems.STRANGE_NETHER_GOO, Setup.TOKEN,
-            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, new ItemStack(Material.END_ROD), new ItemStack(Material.EMERALD_BLOCK),
-            Setup.TOKEN, new ItemStack(Material.EMERALD_BLOCK), SlimefunItems.STAFF_ELEMENTAL
+        super(ig, Setup.TRADE_WAND.asOne(), "VU_TRADE_WAND", RecipeType.ANCIENT_ALTAR, new ItemStack[] {
+            SlimefunItems.VILLAGER_RUNE.asOne(), SlimefunItems.STRANGE_NETHER_GOO.asOne(), Setup.TOKEN.asOne(),
+            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE.asOne(), new ItemStack(Material.END_ROD), new ItemStack(Material.EMERALD_BLOCK),
+            Setup.TOKEN.asOne(), new ItemStack(Material.EMERALD_BLOCK), SlimefunItems.STAFF_ELEMENTAL.asOne()
         });
     }
 

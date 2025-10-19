@@ -46,10 +46,10 @@ public class TransportWand extends SlimefunItem {
 
     // Creates Villager Transport Wand
     public TransportWand(ItemGroup ig) {
-        super(ig, Setup.TRANSPORT_WAND, "VU_TRANSPORT_WAND", RecipeType.ANCIENT_ALTAR, new ItemStack[] {
-            SlimefunItems.VILLAGER_RUNE, new ItemStack(Material.MINECART), Setup.TOKEN,
+        super(ig, Setup.TRANSPORT_WAND.asOne(), "VU_TRANSPORT_WAND", RecipeType.ANCIENT_ALTAR, new ItemStack[] {
+            SlimefunItems.VILLAGER_RUNE.asOne(), new ItemStack(Material.MINECART), Setup.TOKEN.asOne(),
             new ItemStack(Material.MINECART), new ItemStack(Material.END_ROD), new ItemStack(Material.EMERALD_BLOCK),
-            Setup.TOKEN, new ItemStack(Material.EMERALD_BLOCK), SlimefunItems.STAFF_ELEMENTAL
+            Setup.TOKEN.asOne(), new ItemStack(Material.EMERALD_BLOCK), SlimefunItems.STAFF_ELEMENTAL.asOne()
         });
     }
 
@@ -82,7 +82,7 @@ public class TransportWand extends SlimefunItem {
                 }
 
                 // Create transport charm
-                ItemStack charm = Setup.TRANSPORT_CHARM.clone();
+                ItemStack charm = Setup.TRANSPORT_CHARM.asOne();
                 ItemMeta meta = charm.getItemMeta();
 
                 // Null check
