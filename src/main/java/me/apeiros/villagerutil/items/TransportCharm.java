@@ -24,8 +24,6 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.common.ChatColors;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerHead;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerSkin;
 
 import me.apeiros.villagerutil.Setup;
 import me.apeiros.villagerutil.VillagerUtil;
@@ -50,7 +48,7 @@ public class TransportCharm extends SlimefunItem {
     public TransportCharm(ItemGroup ig) {
         super(ig, Setup.TRANSPORT_CHARM.asOne(), "VU_TRANSPORT_CHARM", transportWandRecipeType, new ItemStack[] {
             null, null, null,
-            null, CustomItemStack.create(PlayerHead.getItemStack(PlayerSkin.fromBase64(Setup.VILLAGER)), "&aVillager"), null,
+            null, CustomItemStack.create(Utils.fromBase64Hash(Setup.VILLAGER), "&aVillager"), null,
             null, null, null
         });
     }
